@@ -1,13 +1,13 @@
 {
-  "name": "vibraille",
-  "author": "Vibraille Group",
+  "name": "polopebble",
+  "author": "MakeAwesomeHappen",
   "version": "1.0.0",
   "keywords": ["pebble-app"],
   "private": true,
   "dependencies": {},
   "pebble": {
-    "displayName": "vibraille",
-    "uuid": "fc58eb4a-4b75-4632-a9c8-ea6f3d69d17d",
+    "displayName": "polopebble",
+    "uuid": "102f957f-05a7-4ec0-bdf5-c493a4803052",
     "sdkVersion": "3",
     "enableMultiJS": true,
     "targetPlatforms": [
@@ -17,7 +17,7 @@
       "diorite"
     ],
     "watchapp": {
-      "watchface": true
+      "watchface": false
     },
     "messageKeys": [
       "dummy"
