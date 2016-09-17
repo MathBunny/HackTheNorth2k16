@@ -8,7 +8,5 @@ import android.location.Location;
 public class LocationData {
 	public static Location destination;
 	public static Location current;
-
-	public static final long REFRESH_TIME = 3;
-	public static final float REFRESH_DISTANCE = 5;
+	public static Location start;
 }

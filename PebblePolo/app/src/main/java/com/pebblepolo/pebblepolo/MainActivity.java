@@ -3,14 +3,13 @@ package com.pebblepolo.pebblepolo;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import android.location.LocationListener;
-
-import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -42,15 +41,17 @@ public class MainActivity extends AppCompatActivity {
 	    LocationManager locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 
 	    try {
-		    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LocationData.REFRESH_TIME, LocationData.REFRESH_DISTANCE, locationListener);
+		    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, Constants.LOCATION_REFRESH_TIME, Constants.LOCATION_REFRESH_DISTANCE, locationListener);
 	    } catch(SecurityException e) {
-		    Log.e("Error", Log.getStackTraceString(e));
-	    }
+			Log.e("Error", Log.getStackTraceString(e));
+		}
+
+		Thread t = new Thread(new FrequencyUpdater(this));
+		t.start();
     }
 
     public void selectDestination(View v) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
-
     }
 }
