@@ -1,23 +1,18 @@
 #include "pebble.h"
-#include "compass_window.h"
-#include "compass_calibration_window.h"
 
-static CompassWindow *compass_window;
+static Window *s_main_window;
+static TextLayer *s_heading_layer, *s_text_layer_calib_state;
 
-static void init(void) {
-    compass_window = compass_window_create();
-    window_stack_push(compass_window_get_window(compass_window), true);
+static void init(){
+
 }
 
-static void deinit(void) {
-    compass_window_destroy(compass_window);
+static void deinit(){
+
 }
 
 int main(void) {
     init();
-
-    APP_LOG(APP_LOG_LEVEL_DEBUG, "Done initializing, pushed window: %p", compass_window);
-
     app_event_loop();
     deinit();
     return 0;

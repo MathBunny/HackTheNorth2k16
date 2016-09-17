@@ -25,10 +25,9 @@
     "resources": {
       "media": [
         {
-            "type": "png",
-            "name": "ICON",
-            "file": "icon.png",
-            "menuIcon": true
+          "type": "bitmap",
+          "name": "COMPASS_BACKGROUND",
+          "file": "images/compass_background.png"
         }
       ]
     }
