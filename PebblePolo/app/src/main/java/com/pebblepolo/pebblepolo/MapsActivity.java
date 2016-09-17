@@ -1,5 +1,6 @@
 package com.pebblepolo.pebblepolo;
 
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	}
 
 	public void selectDestination(View v) {
-
+		//LocationData.d
 	}
 }

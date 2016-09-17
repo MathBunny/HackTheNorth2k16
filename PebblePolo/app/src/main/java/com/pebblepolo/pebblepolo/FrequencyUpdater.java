@@ -21,7 +21,7 @@ public class FrequencyUpdater implements Runnable {
 		while(true) {
 			Vibrator vibrator = (Vibrator)app.getSystemService(Context.VIBRATOR_SERVICE);
 
-			if(LocationData.destination != null) {
+			if(LocationData.destination != null && LocationData.start != null) {
 				float initialDistance = LocationData.start.distanceTo(LocationData.destination);
 				float dist = LocationData.current.distanceTo(LocationData.destination);
 

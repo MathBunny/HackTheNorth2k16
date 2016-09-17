@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
 		    @Override
 		    public void onLocationChanged(Location location) {
-			    if (LocationData.destination != null) {
+				if (LocationData.destination != null) {
+					if(LocationData.start == null) {
+						LocationData.start = location;
+					}
 				    LocationData.current = location;
 			    }
 		    }
