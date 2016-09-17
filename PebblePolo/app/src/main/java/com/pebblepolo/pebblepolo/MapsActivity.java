@@ -1,7 +1,9 @@
 package com.pebblepolo.pebblepolo;
 
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,5 +44,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		LatLng sydney = new LatLng(-34, 151);
 		mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 		mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+	}
+
+	public void selectDestination(View v) {
+		LatLng cameraLocation = mMap.getCameraPosition().target;
+
+		Location dest = new Location("");
+
+		dest.setLongitude(cameraLocation.longitude);
+		dest.setLatitude(cameraLocation.latitude);
+
+		LocationData.destination = dest;
 	}
 }
