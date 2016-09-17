@@ -22,7 +22,7 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by Apaar on 2016-09-17.
  */
 public class Geocoding {
-	private Location getLocationFromAddress(String addr) {
+	public static Location getLocationFromAddress(String addr) {
 		try {
 			URLConnection connection = new URL("http://maps.googleapis.com/maps/api/geocode/json?" + URLEncoder.encode(addr, "UTF-8")).openConnection();
 			connection.setRequestProperty("Accept-Charset", "UTF-8");

@@ -1,10 +1,14 @@
 package com.pebblepolo.pebblepolo;
 
+import android.content.Intent;
+import android.location.Geocoder;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -47,6 +51,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	}
 
 	public void selectDestination(View v) {
-		//LocationData.d
+		EditText editText = (EditText)findViewById(R.id.destination);
+
+		LocationData.destination = Geocoding.getLocationFromAddress(editText.getText().toString());
+		mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(LocationData.destination.getLatitude(), LocationData.destination.getLongitude())));
 	}
 }
