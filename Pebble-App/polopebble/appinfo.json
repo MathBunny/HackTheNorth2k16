@@ -1,0 +1,36 @@
+{
+  "uuid": "49827722-4f3b-4e3f-9e96-d660089f50c1",
+  "shortName": "Compass",
+  "longName": "Compass",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 4,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+      {
+        "type": "png",
+        "name": "ICON",
+        "file": "icon.png",
+        "menuIcon": true
+      },
+      {
+        "type": "png",
+        "name": "CROSS_HAIR_LARGE",
+        "file": "cross_hair_large.png"
+      }
+    ]
+  },
+  "targetPlatforms": [
+    "aplite",
+    "basalt",
+    "chalk",
+    "diorite"
+  ],
+  "sdkVersion": "3"
+}
