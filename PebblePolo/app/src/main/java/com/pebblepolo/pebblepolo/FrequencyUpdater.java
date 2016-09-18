@@ -22,13 +22,12 @@ public class FrequencyUpdater implements Runnable {
 		while(true) {
 			Vibrator vibrator = (Vibrator)app.getSystemService(Context.VIBRATOR_SERVICE);
 
-			if(LocationData.destination != null && LocationData.start != null) {
+			if(LocationData.destination != null && LocationData.start != null && LocationData.current != null) {
 				Location l = LocationData.start;
 				float initialDistance = l.distanceTo(LocationData.destination);
 				float dist = LocationData.current.distanceTo(LocationData.destination);
 
-				long[] pattern = new long[] {100, (long)(Constants.MAX_VIBRATION_DELAY_DURATION * (dist / initialDistance))};
-
+				long[] pattern = new long[] {(long)(Constants.MAX_VIBRATION_DELAY_DURATION * (dist / initialDistance)), 100};
 				vibrator.vibrate(pattern, 0);
 			} else {
 				vibrator.cancel();

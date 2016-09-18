@@ -53,7 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	public void selectDestination(View v) {
 		EditText editText = (EditText)findViewById(R.id.destination);
 
-		LocationData.destination = Geocoding.getLocationFromAddress(editText.getText().toString());
 		mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(LocationData.destination.getLatitude(), LocationData.destination.getLongitude())));
 	}
 }
