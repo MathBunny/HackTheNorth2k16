@@ -3,6 +3,7 @@ package com.pebblepolo.pebblepolo;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.location.Location;
 import android.os.Vibrator;
 import android.util.Log;
 
@@ -22,7 +23,8 @@ public class FrequencyUpdater implements Runnable {
 			Vibrator vibrator = (Vibrator)app.getSystemService(Context.VIBRATOR_SERVICE);
 
 			if(LocationData.destination != null && LocationData.start != null) {
-				float initialDistance = LocationData.start.distanceTo(LocationData.destination);
+				Location l = LocationData.start;
+				float initialDistance = l.distanceTo(LocationData.destination);
 				float dist = LocationData.current.distanceTo(LocationData.destination);
 
 				long[] pattern = new long[] {100, (long)(Constants.MAX_VIBRATION_DELAY_DURATION * (dist / initialDistance))};

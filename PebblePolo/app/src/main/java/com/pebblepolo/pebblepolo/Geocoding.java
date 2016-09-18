@@ -22,9 +22,10 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by Apaar on 2016-09-17.
  */
 public class Geocoding {
+	private static final String API_KEY = "AIzaSyCE-DhbyzL-6on2HYxns_lmxV_kiN1zWlU";
 	public static Location getLocationFromAddress(String addr) {
 		try {
-			URLConnection connection = new URL("http://maps.googleapis.com/maps/api/geocode/json?" + URLEncoder.encode(addr, "UTF-8")).openConnection();
+			URLConnection connection = new URL("http://maps.googleapis.com/maps/api/geocode/json?" + URLEncoder.encode(addr, "UTF-8") + "&" + URLEncoder.encode("key=" + API_KEY, "UTF-8")).openConnection();
 			connection.setRequestProperty("Accept-Charset", "UTF-8");
 
 			try {
@@ -41,8 +42,7 @@ public class Geocoding {
 					// get the first result
 					JSONObject res = obj.getJSONArray("results").getJSONObject(0);
 					Log.d("Test", res.getString("formatted_address"));
-					JSONObject loc =
-							res.getJSONObject("geometry").getJSONObject("location");
+					JSONObject loc = res.getJSONObject("geometry").getJSONObject("location");
 
 					Log.d("Test", loc.getDouble("lat") + " vs " + loc.getDouble("lng"));
 
@@ -58,10 +58,8 @@ public class Geocoding {
 			} catch (IOException e) {
 				return null;
 			}
+		} catch(Exception e) {
+			return null;
 		}
-		catch(UnsupportedEncodingException e){}
-		catch(MalformedURLException e){}
-		catch(IOException e){}
-		return null;
 	}
 }
